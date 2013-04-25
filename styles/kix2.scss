@@ -1,0 +1,124 @@
+body{
+  margin: 0px;
+  background-size: 100% 1.2em;
+}
+
+
+.container{
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  position: fixed;
+}
+
+.starfield{
+  width: 100%;
+  height: 100%;
+  // left:0px;
+  // top:0px;
+  background-color: #000230;
+
+  .particle{
+    position:absolute;
+    -webkit-transition: font-size ease-out 1.5s;    
+    @for $i from 1 through 80{
+    &:nth-child(#{$i}){
+        background-color:hsl(((360/8)*$i) + 15, 80%, 45%);
+      }
+    }
+    &.circle{
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+      margin-top: -15px;
+      margin-left:-15px;
+      // &:after{
+      //   content: "●";
+      //  }
+    }
+
+    &.square{
+      &:after{
+        content: "■";
+       }
+    }
+
+    &.star{
+      &:after{
+        content: "★";
+      }
+    }
+
+    &.triangle{
+      &:after{
+        content: "▲";
+      }
+    }
+  }
+
+
+
+  
+}
+
+@-webkit-keyframes spin{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}
+
+.keyboard{
+  height: 25%;
+  width: 100%;
+  background-color: #000;
+  margin: 0px;
+  position:absolute;
+  bottom: 0px;
+  .key{
+    width: 12.5%;
+    height: 100%;
+    display: block;
+    position: relative;
+    float: right;
+    .lazer{         
+      position:absolute;
+      width: 100%;
+      // padding:0px 10px;
+      // margin-left:-10px;
+    }
+    
+
+    @for $i from 1 through 8{
+
+      &:nth-child(#{$i}){
+        background:hsl(((360/8)*$i) + 15, 80%, 45%);
+        -webkit-transition: all ease-out 0.5s;    
+        // .lazer{
+        //   // background:hsla(((360/8)*$i) + 15, 80%, 45%, .3);
+        //   background:hsla(((360/8)*$i) + 15, 100%, 55%,.8);
+        //   -webkit-transition: all ease-out .35s;    
+        //   height: 250px;
+        // }
+      }
+      &:nth-child(#{$i}).held{
+        background:hsla(((360/8)*$i) + 15, 100%, 80%, 1);
+        -webkit-transition: all ease-out .05s;  
+        height: 160%; 
+        margin-top: -100px;
+
+        // .lazer{
+        //   height: 3050px;
+        //   top:150px;
+        //   // background:hsla(((360/8)*$i) + 15, 100%, 55%,.8);
+        //   // padding-right: 50px;
+        //   // margin-left:-25px;
+        //   -webkit-transition: all ease-out .1s, background-color ease-out .3s; 
+        // }
+      }
+    }
+  }
+}
