@@ -24,11 +24,13 @@ define([
 
       keyElement.ontouchstart = function(event){
 
-        _this.noteOn(event.target.dataset['note'] + _this.octave);
+        _this.noteOn(event.target.dataset['note'] + _this.octave, event.target);
 
       }
 
       keyElement.ontouchmove = function(event){
+
+        event.preventDefault();
         
         var element = document.elementFromPoint(
           event.changedTouches[0].clientX, 
@@ -40,7 +42,7 @@ define([
           var note = element.dataset['note'] + _this.octave;
 
           if(note!=_this.heldNote)
-            _this.noteOn(note);
+            _this.noteOn(note, element);
 
         }
         else{
@@ -61,22 +63,30 @@ define([
 
   }
 
-  PianoKeyboard.prototype.noteOn = function(note){
+  PianoKeyboard.prototype.noteOn = function(note, element){
 
-    if(this.heldNote!='')
+    if(this.heldNote!=''){
       this.noteSlideCallback(note);
-    else
+    }
+    else{
       this.noteOnCallback(note);
+    }
+
+    if(this.heldKeyElement)
+      this.heldKeyElement.classList.remove('held');
 
     this.heldNote = note;
+    this.heldKeyElement = element;
+    this.heldKeyElement.classList.add('held');
 
   }
 
   PianoKeyboard.prototype.noteOff = function(note){
     
-    _this.noteOffCallback();   
+    this.noteOffCallback();   
         
-    _this.heldNote = '';
+    this.heldNote = '';
+    this.heldKeyElement.classList.remove('held');
 
   }
 
