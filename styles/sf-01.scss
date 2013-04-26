@@ -1,0 +1,101 @@
+* { -webkit-appearance: none; }
+
+.container{
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  position: fixed;
+}
+
+
+.sf-01{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+  background-color:#273349;
+  position:absolute;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+
+  .modules{
+    .module{
+      float: left;
+      padding: 0 10px 0 0;
+      text-transform:uppercase;
+      .module-label{
+        float: left;
+        clear: both;
+        width: 100%;
+        font-weight: 600;
+        color: #FFF;
+        background-color: #FF0000;
+        padding:5px 0;
+        text-align: center;
+        font-size: 13px;
+      }
+      .slider{
+        float: left;
+         text-align: center;
+        .label{
+          width: 100%;
+          height: 30px;
+          float: left;
+          font-size: 12px;
+          color: #FFF;
+        }
+        text-align: center;
+        input[type="range"] {
+          -webkit-appearance: slider-vertical;
+          background-color: silver;
+          width: 50px;
+          height: 200px;
+          margin: -10px 0 0 0;
+          -webkit-border-radius:0px;
+        }
+
+        input[type='range']::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          height:40px;
+          width:40px;
+          background-color: #000;
+          background-repeat:no-repeat;
+          -webkit-border-radius:0;
+        }
+      }
+      
+    }
+  }
+}
+
+#piano-keys{
+  width: 100%;
+  height: 400px;
+  clear: both;
+  .key{
+    display: inline-block;
+    width: 14.28571428571429%; // 100/7 whole notes
+    height: 100%;
+    border:1px solid #000;
+    float: left;
+    position: relative;
+    margin: -1px;
+    background-color: #fdfdfd;
+    &.sharp{
+      background-color: #000;
+      height: 66.6%;
+      width: 66.6%;
+      margin-right: 50%;
+      position: absolute;
+      left: 66.6%;
+      z-index: 100;
+    }
+  }
+}
