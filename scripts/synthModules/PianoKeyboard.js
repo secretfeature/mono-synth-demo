@@ -4,17 +4,9 @@ define([
 
   PianoKeyboard = function (audioContext, noteOnCallback, noteSlideCallback, noteOffCallback){
 
-    this.audioReady = false;
+    _this = this;
 
     this.audioContext = audioContext || new webkitAudioContext();
-
-    this.octave = 5;
-
-    _this = this;
-    
-    // this.frequency = this.notes[this.rootKey + this.octave];
-
-    this.heldNote = '';
 
     this.noteOnCallback = noteOnCallback;
 
@@ -22,11 +14,19 @@ define([
 
     this.noteOffCallback = noteOffCallback;
 
+    this.audioReady = false;
+
+    this.octave = 5;
+    
+    this.heldNote = '';
+
     this.keyElements = document.querySelectorAll('#piano-keys .key');
 
     _.each(this.keyElements,function(keyElement){
 
-      keyElement.onmmousedown = function(event){
+      //mouse events
+
+      keyElement.onmousedown = function(event){
         
         event.preventDefault();
 
@@ -34,7 +34,7 @@ define([
       
       }
 
-      keyElement.onmmouseup = function(event){
+      keyElement.onmouseup = function(event){
 
         event.preventDefault();
 
@@ -42,11 +42,42 @@ define([
 
       }
 
+
+      keyElement.onmousemove = function(event){
+
+        event.preventDefault();
+        
+        if(_this.heldNote!=''){
+
+          var element = document.elementFromPoint(
+            event.x, 
+            event.y
+          );
+
+          if(element.dataset['note']){
+
+            var note = element.dataset['note'] + _this.octave;
+
+            if(note!=_this.heldNote)
+              _this.noteOn(note, element);
+
+          }
+          else{
+
+            _this.noteOff();
+
+          }
+        }
+
+      }
+
+      //touch events
+
       keyElement.ontouchstart = function(event){
         
         event.preventDefault();
 
-        //hack
+        //iOS web audio  hack 
         if(!this.audioReady){
           this.audioReady = true;
           var osc = audioContext.createOscillator();
