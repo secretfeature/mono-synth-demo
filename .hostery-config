@@ -1,6 +1,6 @@
 {
-  "root": "/domains/secretfeature.com/html/public_demos/mono-synth-demo", 
-  "host": "secretfeature.com", 
-  "type": "ftp", 
-  "login": "rayreadyray.com"
+  "root": "/Users/raymcclure/Documents/Secret Feature/2013/mono-synth-demo/app", 
+  "host": "", 
+  "type": "rsync", 
+  "login": ""
 }
