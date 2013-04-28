@@ -24,11 +24,16 @@ require([
               };
     })();
 
+    document.querySelector('.touch-move-scroll-blocker').addEventListener('touchmove', function(event) {                                                                                                                                                                                                                
+        event.preventDefault();                                                                                                                                                                                                                                           
+    }, false); 
+
     var audioContext = new webkitAudioContext();
 
-    var synth = new MonoSynth();
+    var synth = new MonoSynth(audioContext);
 
     var keyboard = new PianoKeyboard(
+      audioContext,
       function(note){
         synth.noteOn(note, 1);
       },

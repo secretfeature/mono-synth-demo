@@ -2,7 +2,11 @@ define([
   'underscore'
 ], function (){
 
-  PianoKeyboard = function (noteOnCallback, noteSlideCallback, noteOffCallback){
+  PianoKeyboard = function (audioContext, noteOnCallback, noteSlideCallback, noteOffCallback){
+
+    this.audioReady = false;
+
+    this.audioContext = audioContext || new webkitAudioContext();
 
     this.octave = 5;
 
@@ -22,10 +26,37 @@ define([
 
     _.each(this.keyElements,function(keyElement){
 
-      keyElement.ontouchstart = function(event){
+      keyElement.onmmousedown = function(event){
+        
+        event.preventDefault();
 
         _this.noteOn(event.target.dataset['note'] + _this.octave, event.target);
+      
+      }
 
+      keyElement.onmmouseup = function(event){
+
+        event.preventDefault();
+
+        _this.noteOff();
+
+      }
+
+      keyElement.ontouchstart = function(event){
+        
+        event.preventDefault();
+
+        //hack
+        if(!this.audioReady){
+          this.audioReady = true;
+          var osc = audioContext.createOscillator();
+          osc.connect(_this.audioContext.destination);
+          osc.noteOn(0);
+          osc.disconnect(0);
+        }
+
+        _this.noteOn(event.target.dataset['note'] + _this.octave, event.target);
+        
       }
 
       keyElement.ontouchmove = function(event){
@@ -54,6 +85,8 @@ define([
       }
 
        keyElement.ontouchend = function(event){
+
+        event.preventDefault();
 
         if(event.touches.length==0)
           _this.noteOff();
