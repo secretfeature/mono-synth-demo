@@ -1,5 +1,5 @@
 {
-  "root": "/Users/raymcclure/Documents/Secret Feature/2013/mono-synth-demo/app", 
+  "root": "/Users/raymcclure/Documents/hostery/mono-synth-demo", 
   "host": "", 
   "type": "rsync", 
   "login": ""
