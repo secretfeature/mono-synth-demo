@@ -1,0 +1,6 @@
+{
+  "root": "/domains/secretfeature.com/html/public_demos/mono-synth-demo", 
+  "host": "secretfeature.com", 
+  "type": "ftp", 
+  "login": "rayreadyray.com"
+}
