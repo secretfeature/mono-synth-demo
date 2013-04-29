@@ -1,0 +1,92 @@
+require.config({
+  shim: {
+  },
+
+  paths: {
+    underscore: '../../thirdparty/underscore/underscore-min',
+  }
+});
+ 
+require([
+  'MonoSynth',
+  '../../scripts/synthModules/PianoKeyboard'
+  ], 
+  function(MonoSynth,PianoKeyboard) {
+
+    document.querySelector('.touch-move-scroll-blocker').addEventListener('touchmove', function(event) {                                                                                                                                                                                                                
+        event.preventDefault();                                                                                                                                                                                                                                           
+    }, false); 
+
+    var audioContext = new webkitAudioContext();
+
+    var synth = new MonoSynth(audioContext);
+
+    //setup sliders
+    var oscShapeSlider = document.querySelector('#osc-shape');
+    oscShapeSlider.onchange = function(event){
+      synth.oscillator.type = event.target.value;
+    }
+
+    var lpfCutoffSlider = document.querySelector('#lpf-freq');
+    lpfCutoffSlider.onchange = function(event){
+      synth.setFilterFrequency(event.target.value);
+    }
+
+    var lpfResonanceSlider = document.querySelector('#lpf-res');
+    lpfResonanceSlider.onchange = function(event){
+      synth.setFilterResonance(event.target.value);
+    }
+
+    var attackSlider = document.querySelector('#env-attack');
+    attackSlider.onchange = function(event){
+      synth.envelope[0] = event.target.value;
+      console.log(synth.envelope[0]);
+    }
+
+    var decaySlider = document.querySelector('#env-decay');
+    decaySlider.onchange = function(event){
+      synth.envelope[1] = event.target.value;
+      console.log(synth.envelope[1]);
+    }
+
+    var sustainSlider = document.querySelector('#env-sustain');
+    sustainSlider.onchange = function(event){
+      synth.envelope[2] = event.target.value;
+      console.log(synth.envelope[2]);
+    }
+
+    var releaseSlider = document.querySelector('#env-release');
+    releaseSlider.onchange = function(event){
+      synth.envelope[3] = event.target.value;
+      console.log(synth.envelope[3]);
+    }
+    
+
+    // setup piano keyboard
+    var noteOnCallback = function(note){
+      
+      synth.noteOn(note);
+    
+    };
+
+    var noteSlideCallback = function(note){
+    
+      synth.noteSlide(note);
+    
+    };
+
+    var noteOffCallback = function(){
+    
+      synth.noteOff();
+    
+    };
+
+    var keyboard = 
+    new PianoKeyboard(
+      audioContext,
+      noteOnCallback,
+      noteSlideCallback,
+      noteOffCallback      
+    );
+
+});
