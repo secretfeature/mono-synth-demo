@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        
+        <link rel="stylesheet" href="../styles/main.css">
+        <link rel="stylesheet" href="../styles/sf-01.css">
+        <script src="../../thirdparty/modernizr.min.js"></script>
+    </head>
+    <body>
+    <div class="container">
+        <div class="sf-01">
+
+            <div class="touch-move-scroll-blocker"></div>
+            
+            <div class="modules">
+                <div class="module osc">
+                        
+                    <span class="module-label">Osc</span> <br/>
+                    
+                    <div class="slider waveform">
+                        <span class="label">shape</span>
+                        <input type="range" id="osc-shape" min="0" max="3" step="1" value="0" />
+                    </div>
+
+                </div>
+            </div>
+            <br />
+
+            <div id="piano-keys">
+                <div class="key" data-note="C">
+                    <div class="sharp key" data-note="C#"></div>
+                </div>
+                
+                <div class="key" data-note="D">
+                    <div class="sharp key" data-note="D#"></div>
+                </div>
+                
+                <div class="key" data-note="E"></div>
+    
+                <div class="key" data-note="F">
+                    <div class="sharp key" data-note="F#"></div>
+                </div>
+   
+                <div class="key" data-note="G">
+                    <div class="sharp key" data-note="G#"></div>
+                </div>
+   
+                <div class="key" data-note="A">
+                    <div class="a sharp key"  data-note="A#"></div>
+                </div>
+                
+                <div class="key" data-note="B"></div>
+
+
+            </div>
+        </div>
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+        <![endif]-->
+
+     
+    <!-- build:js scripts/amd-app.js -->‹‹
+    <script data-main="scripts/main" src="../../thirdparty/require.js"></script>
+    <!-- endbuild -->
+
+
+</body>
+</html>
+

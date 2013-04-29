@@ -3,26 +3,15 @@ require.config({
   },
 
   paths: {
-    underscore: '../components/underscore/underscore-min',
+    underscore: '../../thirdparty/underscore/underscore-min',
   }
 });
  
 require([
   'MonoSynth',
-  'synthModules/PianoKeyboard'
+  '../../scripts/synthModules/PianoKeyboard'
   ], 
   function(MonoSynth,PianoKeyboard) {
-  // shim layer with setTimeout fallback
-    window.requestAnimFrame = (function(){
-      return  window.requestAnimationFrame       || 
-              window.webkitRequestAnimationFrame || 
-              window.mozRequestAnimationFrame    || 
-              window.oRequestAnimationFrame      || 
-              window.msRequestAnimationFrame     || 
-              function( callback ){
-                window.setTimeout(callback, 1000 / 60);
-              };
-    })();
 
     document.querySelector('.touch-move-scroll-blocker').addEventListener('touchmove', function(event) {                                                                                                                                                                                                                
         event.preventDefault();                                                                                                                                                                                                                                           
@@ -32,16 +21,38 @@ require([
 
     var synth = new MonoSynth(audioContext);
 
-    var keyboard = new PianoKeyboard(
+    //setup sliders
+    var oscShapeSlider = document.querySelector('.slider.waveform');
+    oscShapeSlider.onchange = function(event){
+      console.log(event);
+      synth.oscillator.type = event.target.value;
+    }
+
+    // setup piano keyboard
+    var noteOnCallback = function(note){
+      
+        synth.noteOn(note);
+    
+    };
+
+    var noteSlideCallback = function(note){
+    
+      synth.noteSlide(note);
+    
+    };
+
+    var noteOffCallback = function(){
+    
+      synth.noteOff();
+    
+    };
+
+    var keyboard = 
+    new PianoKeyboard(
       audioContext,
-      function(note){
-        synth.noteOn(note, 1);
-      },
-      function(note){
-        synth.noteSlide(note, 1);
-      },
-      function(){
-        synth.noteOff();
-      });
+      noteOnCallback,
+      noteSlideCallback,
+      noteOffCallback      
+    );
 
 });
