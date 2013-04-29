@@ -39,6 +39,15 @@ define([
 
     this.envelope = new Float32Array([0.0,0.0,0.0,0.0]);
 
+    this.lfo = this.audioContext.createOscillator();
+    //turn on lfo
+    this.lfo.noteOn(0); 
+
+    this.oscLFOGain = this.audioContext.createGainNode();
+    this.oscLFOGain.gain.value = 1.0;
+    this.lfo.connect(this.oscLFOGain);
+    this.oscLFOGain.connect(this.oscillator.detune);
+
     //connect the master gain to your speakers
     this.gain.connect(this.audioContext.destination);
 

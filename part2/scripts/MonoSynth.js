@@ -90,27 +90,30 @@ define([
 
   }
 
+  //from http://www.html5rocks.com/en/tutorials/webaudio/intro/js/filter-sample.js
   MonoSynth.prototype.setFilterFrequency = function(value){
-    //get current time from audio context to schedule changes now
-    var now = this.audioContext.currentTime,
-        //arbitrary exponential value
-        frequency = Math.exp(value * 7);
 
-    this.filterFrequency = frequency;
+    var now = this.audioContext.currentTime;
+    // Clamp the frequency between the minimum value (40 Hz) and half of the
+    // sampling rate.
+    var minValue = 40;
+    var maxValue = this.audioContext.sampleRate / 2;
+    // Logarithm (base 2) to compute how many octaves fall in the range.
+    var numberOfOctaves = Math.log(maxValue / minValue) / Math.LN2;
+    // Compute a multiplier from 0 to 1 based on an exponential scale.
+    var multiplier = Math.pow(2, numberOfOctaves * (value - 1.0));
 
-    //set filter frequency now
-    this.filter.frequency.setValueAtTime(frequency + this.frequency, now);
+    // Get back to the frequency value between min and max.
+    this.filter.frequency.setValueAtTime(maxValue * multiplier, now);
 
   }
 
   MonoSynth.prototype.setFilterResonance = function(value){
     //get current time from audio context to schedule changes now
-    var now = this.audioContext.currentTime,
-        //arbitrary value of 5000 for frequency
-        frequency = value * 100;
+    var now = this.audioContext.currentTime;
 
     //set filter Q now
-    this.filter.Q.setValueAtTime(frequency, now);
+    this.filter.Q.setValueAtTime(value * 30, now);
 
   }
 

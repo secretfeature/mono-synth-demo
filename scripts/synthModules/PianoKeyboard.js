@@ -16,7 +16,7 @@ define([
 
     this.audioReady = false;
 
-    this.octave = 5;
+    this.octave = 4;
     
     this.heldNote = '';
 

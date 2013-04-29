@@ -55,9 +55,26 @@ require([
 
     var releaseSlider = document.querySelector('#env-release');
     releaseSlider.onchange = function(event){
+      console.log(event.target.value);
       synth.envelope[3] = event.target.value;
     }
-    
+
+    var lfoShapeSlider = document.querySelector('#lfo-shape');
+    lfoShapeSlider.onchange = function(event){
+      synth.lfo.type = event.target.value;
+    }
+
+    var lfoRateSlider = document.querySelector('#lfo-rate');
+    lfoRateSlider.onchange = function(event){
+      console.log(event.target.value);
+      synth.lfo.frequency.value = event.target.value * 100 ;
+    }
+
+    var oscLFOSlider = document.querySelector('#osc-lfo');
+    oscLFOSlider.onchange = function(event){
+      console.log(event.target.value);
+      synth.oscLFOGain.gain.value = event.target.value  * -1000;
+    }
 
     // setup piano keyboard
     var noteOnCallback = function(note){
