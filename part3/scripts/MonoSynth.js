@@ -55,9 +55,9 @@ define([
     this.frequency = frequency;
 
     //cancel any scheduled changes
-    this.oscillator.frequency.cancelScheduledValues(0);
-    this.filter.frequency.cancelScheduledValues(0);
-    this.gain.gain.cancelScheduledValues(0);
+    this.oscillator.frequency.cancelScheduledValues(now);
+    this.filter.frequency.cancelScheduledValues(now);
+    this.gain.gain.cancelScheduledValues(now);
 
     //set frequency now
     this.oscillator.frequency.setValueAtTime(frequency, now);
@@ -65,14 +65,12 @@ define([
     //set filter frequency now
     this.filter.frequency.setValueAtTime(frequency + this.frequency, now);
 
-    //reset gain
-    this.gain.gain.setValueAtTime(0, now);
-    
+    //pin value to ramp from
+    this.gain.gain.setValueAtTime(this.gain.gain.value, now);
     //attack
-    this.gain.gain.linearRampToValueAtTime(1, now + this.envelope[0]);
-    
+    this.gain.gain.linearRampToValueAtTime(1.0, now + this.envelope[0]);
     //decay
-    this.gain.gain.setTargetValueAtTime(this.envelope[2], now + this.envelope[0], this.envelope[1]);
+    this.gain.gain.linearRampToValueAtTime(this.envelope[2], now + this.envelope[0] + this.envelope[1]);
     
   }
 
@@ -88,9 +86,7 @@ define([
     //slide to frequency using portamento time value
     this.oscillator.frequency.linearRampToValueAtTime(frequency,now + this.portamento);
 
-    //set filter frequency now
-    this.filter.frequency.setValueAtTime(frequency + this.frequency, now);
-
+    this.filter.frequency.linearRampToValueAtTime(frequency,now + this.portamento);
   }
 
   MonoSynth.prototype.noteOff = function(note, velocity){
@@ -98,10 +94,11 @@ define([
     //get current time from audio context to schedule changes now
     var now = this.audioContext.currentTime;
 
-    this.gain.gain.cancelScheduledValues(0);
+    this.gain.gain.cancelScheduledValues(0.0);
 
     //release
-    this.gain.gain.setTargetValueAtTime(0, now, this.envelope[3]);
+    this.gain.gain.setValueAtTime(this.gain.gain.value, now);
+    this.gain.gain.linearRampToValueAtTime(0.0, now + this.envelope[3]);
 
   }
 
@@ -122,7 +119,7 @@ define([
     //get current time from audio context to schedule changes now
     var now = this.audioContext.currentTime,
         //arbitrary value of 5000 for frequency
-        frequency = value * 100;
+        frequency = value * 12;
 
     //set filter Q now
     this.filter.Q.setValueAtTime(frequency, now);
