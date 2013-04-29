@@ -1,5 +1,5 @@
 {
-  "root": "..\", 
+  "root": "../", 
   "host": "", 
   "type": "rsync", 
   "login": ""
