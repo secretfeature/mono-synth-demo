@@ -40,25 +40,21 @@ require([
     var attackSlider = document.querySelector('#env-attack');
     attackSlider.onchange = function(event){
       synth.envelope[0] = event.target.value;
-      console.log(synth.envelope[0]);
     }
 
     var decaySlider = document.querySelector('#env-decay');
     decaySlider.onchange = function(event){
       synth.envelope[1] = event.target.value;
-      console.log(synth.envelope[1]);
     }
 
     var sustainSlider = document.querySelector('#env-sustain');
     sustainSlider.onchange = function(event){
       synth.envelope[2] = event.target.value;
-      console.log(synth.envelope[2]);
     }
 
     var releaseSlider = document.querySelector('#env-release');
     releaseSlider.onchange = function(event){
       synth.envelope[3] = event.target.value;
-      console.log(synth.envelope[3]);
     }
     
 
