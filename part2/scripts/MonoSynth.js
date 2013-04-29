@@ -93,8 +93,8 @@ define([
   MonoSynth.prototype.setFilterFrequency = function(value){
     //get current time from audio context to schedule changes now
     var now = this.audioContext.currentTime,
-        //arbitrary value of 5000 for frequency
-        frequency = value * 5000;
+        //arbitrary exponential value
+        frequency = Math.exp(value * 7);
 
     this.filterFrequency = frequency;
 
@@ -107,7 +107,7 @@ define([
     //get current time from audio context to schedule changes now
     var now = this.audioContext.currentTime,
         //arbitrary value of 5000 for frequency
-        frequency = value * 5000;
+        frequency = value * 100;
 
     //set filter Q now
     this.filter.Q.setValueAtTime(frequency, now);
