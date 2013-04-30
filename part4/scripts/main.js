@@ -73,15 +73,15 @@ require([
     }
 
     var lfoRateSlider = document.querySelector('#lfo-rate');
-    synth.lfo.frequency.value = lfoRateSlider.value * 100 ;
+    synth.lfo.frequency.value = lfoRateSlider.value * 100;
     lfoRateSlider.onchange = function(event){
-      synth.lfo.frequency.value = event.target.value * 100 ;
+      synth.lfo.frequency.value = event.target.value * 40;
     }
 
     var oscLFOSlider = document.querySelector('#osc-lfo');
     synth.oscLFOGain.gain.value = oscLFOSlider.value  * -1000;
     oscLFOSlider.onchange = function(event){
-      synth.oscLFOGain.gain.value = event.target.value  * -1000;
+      synth.oscLFOGain.gain.value = event.target.value  * -1200;
     }
 
     // setup piano keyboard
