@@ -24,7 +24,6 @@ require([
     //setup sliders
     var oscShapeSlider = document.querySelector('.slider.waveform');
     oscShapeSlider.onchange = function(event){
-      console.log(event);
       synth.oscillator.type = event.target.value;
     }
 
