@@ -4,7 +4,19 @@ body{
   margin: 0px;
   padding: 0px;
   background-color:#273349;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 }
+
+
+a, a:active,a:hover{
+  color:#FFF;
+  font-weight: 600;
+}
+
+a:visited{
+  color:#CCC;
+}
+
 
 .container{
   width: 100%;
@@ -15,13 +27,17 @@ body{
   left: 0px;
   bottom: 0px;
   top: 0px;
+
+  .parts{
+    text-align: left;
+    padding: 20px;
+  }
 }
 
 .sf-01{
   height: 100%;
   padding: 0px;
   margin: 0px;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
   font-weight: 300;
   display: inline-block;
 
