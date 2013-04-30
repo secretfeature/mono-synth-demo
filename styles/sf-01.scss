@@ -11,6 +11,10 @@ body{
   height: 100%;
   display: block;
   text-align: center;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
 }
 
 .sf-01{
@@ -29,9 +33,10 @@ body{
   user-select: none;
 
   .touch-move-scroll-blocker{
-    width: 100%;
-    height: 672px;
     top: 0px;
+    left:0px;
+    bottom:0px;
+    right: 0px;
     position:absolute;
     // sbackground-color:#273349;
   }
@@ -147,7 +152,17 @@ body{
     /* iPhone 5 only */
     .sf-01 .modules .module .slider{
         input[type="range"] {
-          margin: 50px -50px -20px -50px;
+          margin: 50px -49px -20px -49px;
+        }
+        .waveform-label{
+          position:absolute;
+          top: 55px;
+          left:-20px;
+          height: 100%;
+          width: 20px;
+          img{
+            padding:5px 0px;
+          }
         }
     } 
     #piano-keys{

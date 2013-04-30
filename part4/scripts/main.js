@@ -13,9 +13,10 @@ require([
   ], 
   function(MonoSynth,PianoKeyboard) {
 
-    document.querySelector('.touch-move-scroll-blocker').addEventListener('touchmove', function(event) {                                                                                                                                                                                                                
+    document.querySelector('.touch-move-scroll-blocker').addEventListener('touchstart', function(event) {                                                                                                                                                                                                                
         event.preventDefault();                                                                                                                                                                                                                                           
     }, false); 
+
 
     var audioContext = new webkitAudioContext();
     audioContext.sampleRate = 44100;
