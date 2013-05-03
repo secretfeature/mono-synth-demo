@@ -24,19 +24,16 @@ require([
     //setup sliders
     var oscShapeSlider = document.querySelector('#osc-shape');
     oscShapeSlider.onchange = function(event){
-      console.log(event);
       synth.oscillator.type = parseInt(event.target.value);
     }
 
     var lpfCutoffSlider = document.querySelector('#lpf-freq');
     lpfCutoffSlider.onchange = function(event){
-      console.log(event);
       synth.setFilterFrequency(event.target.value);
     }
 
     var lpfResonanceSlider = document.querySelector('#lpf-res');
     lpfResonanceSlider.onchange = function(event){
-      console.log(event);
       synth.setFilterResonance(event.target.value);
     }
 

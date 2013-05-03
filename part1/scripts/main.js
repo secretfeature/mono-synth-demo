@@ -24,7 +24,7 @@ require([
     //setup sliders
     var oscShapeSlider = document.querySelector('.slider.waveform');
     oscShapeSlider.onchange = function(event){
-      synth.oscillator.type = event.target.value;
+      synth.oscillator.type = parseInt(event.target.value);
     }
 
     // setup piano keyboard
