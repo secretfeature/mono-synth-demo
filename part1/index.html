@@ -17,6 +17,10 @@
         <link rel="stylesheet" href="../styles/main.css">
         <link rel="stylesheet" href="../styles/sf-01.css">
         <script src="../../thirdparty/modernizr.min.js"></script>
+        <script src="../../thirdparty/underscore/underscore-min.js"></script>
+        <script src="./../scripts/synthModules/PianoKeyboard.js"></script>
+        <script src="scripts/MonoSynth.js"></script>
+        <script src="scripts/main.js"></script>
     </head>
     <body>
     <div class="container">
@@ -31,7 +35,7 @@
                     
                     <div class="slider waveform">
                         <span class="label">shape</span>
-                        <input type="range" id="osc-shape" min="0" max="3" step="1" value="0" />
+                        <input type="range" id="osc-shape" min="0" max="3" step="1" value="2" />
                         <div class="waveform-label">
                             <img src="../images/triangle-wave.png" />
                             <img src="../images/sawtooth-wave.png" />
@@ -41,8 +45,9 @@
                     </div>
 
                 </div>
+
             </div>
-            <br />  
+            <br />
 
             <div id="piano-keys">
                 <div class="key" data-note="C">
@@ -71,17 +76,14 @@
 
 
             </div>
+
         </div>
 
         <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade yourf browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
-
-     
-    <!-- build:js scripts/amd-app.js -->
-    <script data-main="scripts/main" src="../../thirdparty/require.js"></script>
-    <!-- endbuild -->
-
 
 </body>
 </html>
+
+

@@ -17,6 +17,10 @@
         <link rel="stylesheet" href="../styles/main.css">
         <link rel="stylesheet" href="../styles/sf-01.css">
         <script src="../../thirdparty/modernizr.min.js"></script>
+        <script src="../../thirdparty/underscore/underscore-min.js"></script>
+        <script src="./../scripts/synthModules/PianoKeyboard.js"></script>
+        <script src="scripts/MonoSynth.js"></script>
+        <script src="scripts/main.js"></script>
     </head>
     <body>
     <div class="container">
@@ -31,7 +35,7 @@
                     
                     <div class="slider waveform">
                         <span class="label">shape</span>
-                        <input type="range" id="osc-shape" min="0" max="3" step="1" value="0" />
+                        <input type="range" id="osc-shape" min="0" max="3" step="1" value="2" />
                         <div class="waveform-label">
                             <img src="../images/triangle-wave.png" />
                             <img src="../images/sawtooth-wave.png" />
@@ -48,7 +52,7 @@
 
                     <div class="slider">
                         <span class="label">cutoff</span>
-                        <input type="range" id="lpf-freq" min="0" max="1" step=".01" value="0" />
+                        <input type="range" id="lpf-freq" min="0" max="1" step=".01" value="1" />
                     </div>
 
                     
@@ -70,20 +74,20 @@
 
                     <div class="slider">
                         <span class="label">decay</span>
-                        <input type="range" id="env-decay" min="0.0" max="3.0" step=".01" value="0" />
+                        <input type="range" id="env-decay" min="0.0" max="3.0" step=".01" value="3.0" />
                     </div>
                     
                     <div class="slider">
                         <span class="label">sustain</span>
-                        <input type="range" id="env-sustain" min="0.0" max="1.0" step=".01" value="0" />
+                        <input type="range" id="env-sustain" min="0.0" max="1.0" step=".01" value="1.0" />
                     </div>
 
                     <div class="slider">
                         <span class="label">release</span>
-                        <input type="range" id="env-release" min="0.0" max="3.0" step=".01" value="0" />
+                        <input type="range" id="env-release" min="0.0" max="3.0" step=".01" value="1.0" />
                     </div>
 
-                </div>
+                </div>              
 
             </div>
             <br />
@@ -119,14 +123,8 @@
         </div>
 
         <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+            <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade yourf browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
         <![endif]-->
-
-     
-    <!-- build:js scripts/amd-app.js -->
-    <script data-main="scripts/main" src="../../thirdparty/require.js"></script>
-    <!-- endbuild -->
-
 
 </body>
 </html>
