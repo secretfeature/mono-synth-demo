@@ -1,19 +1,38 @@
+/* line 1, ../../app/styles/sf-01.scss */
 * {
-  -webkit-appearance: none; }
+  -webkit-appearance: none;
+}
 
+/* line 3, ../../app/styles/sf-01.scss */
 body {
   margin: 0px;
   padding: 0px;
   background-color: #273349;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
 
+/* line 10, ../../app/styles/sf-01.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 14, ../../app/styles/sf-01.scss */
 a, a:active, a:hover {
   color: #FFF;
-  font-weight: 600; }
+  font-weight: 600;
+}
 
+/* line 19, ../../app/styles/sf-01.scss */
+a:active, a:hover {
+  text-decoration: underline;
+}
+
+/* line 23, ../../app/styles/sf-01.scss */
 a:visited {
-  color: #CCC; }
+  color: #CCC;
+}
 
+/* line 28, ../../app/styles/sf-01.scss */
 .container {
   width: 100%;
   height: 100%;
@@ -22,12 +41,15 @@ a:visited {
   position: absolute;
   left: 0px;
   bottom: 0px;
-  top: 0px; }
-  .container .parts {
-    text-align: left; }
-    .container .parts a {
-      padding: 20px; }
+  top: 0px;
+}
+/* line 38, ../../app/styles/sf-01.scss */
+.container .parts {
+  text-align: left;
+  padding: 20px;
+}
 
+/* line 44, ../../app/styles/sf-01.scss */
 .sf-01 {
   height: 100%;
   padding: 0px;
@@ -39,110 +61,150 @@ a:visited {
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
-  .sf-01 .touch-move-scroll-blocker {
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
-    position: absolute; }
-  .sf-01 .modules {
-    height: 20%; }
-    .sf-01 .modules .module {
-      float: left;
-      padding: 0 5px 0 5px;
-      text-transform: uppercase;
-      height: 100%;
-      margin: auto; }
-      .sf-01 .modules .module .module-label {
-        float: left;
-        clear: both;
-        width: 100%;
-        font-weight: 600;
-        color: #FFF;
-        background-color: #FF0000;
-        padding: 5px 0;
-        text-align: center;
-        font-size: 13px; }
-      .sf-01 .modules .module .slider {
-        padding: 15px 0 0 0;
-        float: left;
-        text-align: center;
-        height: 100%;
-        position: relative;
-        text-align: center; }
-        .sf-01 .modules .module .slider .label {
-          width: 100%;
-          height: 30px;
-          float: left;
-          font-size: 12px;
-          color: #FFF; }
-        .sf-01 .modules .module .slider input[type="range"] {
-          background-color: #000;
-          -webkit-appearance: none;
-          -webkit-transform: rotate(270deg);
-          width: 105px;
-          height: 10px;
-          margin: 50px -30px -20px -30px; }
-        .sf-01 .modules .module .slider input[type='range']::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          background-image: url("../images/slider-thumb.png");
-          height: 40px;
-          width: 40px;
-          background-color: #000;
-          border: 0px solid #000;
-          background-color: rgba(0, 0, 0, 0); }
-        .sf-01 .modules .module .slider .waveform-label {
-          position: absolute;
-          top: 55px;
-          left: -5px;
-          height: 100%;
-          width: 20px; }
-          .sf-01 .modules .module .slider .waveform-label img {
-            padding: 5px 0px; }
+  user-select: none;
+}
+/* line 58, ../../app/styles/sf-01.scss */
+.sf-01 .touch-move-scroll-blocker {
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  position: absolute;
+}
+/* line 67, ../../app/styles/sf-01.scss */
+.sf-01 .modules {
+  height: 20%;
+}
+/* line 69, ../../app/styles/sf-01.scss */
+.sf-01 .modules .module {
+  float: left;
+  padding: 0 5px 0 5px;
+  text-transform: uppercase;
+  height: 100%;
+  margin: auto;
+}
+/* line 75, ../../app/styles/sf-01.scss */
+.sf-01 .modules .module .module-label {
+  float: left;
+  clear: both;
+  width: 100%;
+  font-weight: 600;
+  color: #FFF;
+  background-color: #FF0000;
+  padding: 5px 0;
+  text-align: center;
+  font-size: 13px;
+}
+/* line 86, ../../app/styles/sf-01.scss */
+.sf-01 .modules .module .slider {
+  padding: 15px 0 0 0;
+  float: left;
+  text-align: center;
+  height: 100%;
+  position: relative;
+  text-align: center;
+}
+/* line 94, ../../app/styles/sf-01.scss */
+.sf-01 .modules .module .slider .label {
+  width: 100%;
+  height: 30px;
+  float: left;
+  font-size: 12px;
+  color: #FFF;
+}
+/* line 102, ../../app/styles/sf-01.scss */
+.sf-01 .modules .module .slider input[type="range"] {
+  background-color: #000;
+  -webkit-appearance: none;
+  -webkit-transform: rotate(270deg);
+  width: 105px;
+  height: 10px;
+  margin: 50px -30px -20px -30px;
+}
+/* line 111, ../../app/styles/sf-01.scss */
+.sf-01 .modules .module .slider input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-image: url("../images/slider-thumb.png");
+  height: 40px;
+  width: 40px;
+  background-color: #000;
+  border: 0px solid #000;
+  background-color: rgba(0, 0, 0, 0);
+}
+/* line 120, ../../app/styles/sf-01.scss */
+.sf-01 .modules .module .slider .waveform-label {
+  position: absolute;
+  top: 55px;
+  left: -5px;
+  height: 100%;
+  width: 20px;
+}
+/* line 126, ../../app/styles/sf-01.scss */
+.sf-01 .modules .module .slider .waveform-label img {
+  padding: 5px 0px;
+}
 
+/* line 137, ../../app/styles/sf-01.scss */
 #piano-keys {
   width: 100%;
   height: 50%;
   position: absolute;
   bottom: 0px;
   left: 0px;
-  clear: both; }
-  #piano-keys .key {
-    display: inline-block;
-    width: 14.28571428571429%;
-    height: 100%;
-    border: 1px solid #000;
-    float: left;
-    position: relative;
-    margin: -1px;
-    background-color: #fdfdfd;
-    -webkit-transition: background-color ease-out .25s; }
-    #piano-keys .key.sharp {
-      background-color: #000;
-      height: 66.6%;
-      width: 66.6%;
-      margin-right: 50%;
-      position: absolute;
-      left: 66.6%;
-      z-index: 100; }
-      #piano-keys .key.sharp.held {
-        background-color: #ffff00; }
-    #piano-keys .key.held {
-      background-color: #ff0000; }
+  clear: both;
+}
+/* line 144, ../../app/styles/sf-01.scss */
+#piano-keys .key {
+  display: inline-block;
+  width: 14.28571428571429%;
+  height: 100%;
+  border: 1px solid #000;
+  float: left;
+  position: relative;
+  margin: -1px;
+  background-color: #fdfdfd;
+  -webkit-transition: background-color ease-out .25s;
+}
+/* line 155, ../../app/styles/sf-01.scss */
+#piano-keys .key.sharp {
+  background-color: #000;
+  height: 66.6%;
+  width: 66.6%;
+  margin-right: 50%;
+  position: absolute;
+  left: 66.6%;
+  z-index: 100;
+}
+/* line 163, ../../app/styles/sf-01.scss */
+#piano-keys .key.sharp.held {
+  background-color: #ffff00;
+}
+/* line 167, ../../app/styles/sf-01.scss */
+#piano-keys .key.held {
+  background-color: #ff0000;
+}
 
 @media (device-height: 568px) and (device-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
   /* iPhone 5 only */
+  /* line 177, ../../app/styles/sf-01.scss */
   .sf-01 .modules .module .slider input[type="range"] {
-    margin: 50px -49px -20px -49px; }
+    margin: 50px -49px -20px -49px;
+  }
+  /* line 180, ../../app/styles/sf-01.scss */
   .sf-01 .modules .module .slider .waveform-label {
     position: absolute;
     top: 55px;
     left: -20px;
     height: 100%;
-    width: 20px; }
-    .sf-01 .modules .module .slider .waveform-label img {
-      padding: 5px 0px; }
+    width: 20px;
+  }
+  /* line 186, ../../app/styles/sf-01.scss */
+  .sf-01 .modules .module .slider .waveform-label img {
+    padding: 5px 0px;
+  }
 
+  /* line 191, ../../app/styles/sf-01.scss */
   #piano-keys {
-    height: 30%; } }
+    height: 30%;
+  }
+}

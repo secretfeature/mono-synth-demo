@@ -25,9 +25,9 @@ require([
 
     //setup sliders
     var oscShapeSlider = document.querySelector('#osc-shape');
-    synth.oscillator.type = oscShapeSlider.value;
+    synth.oscillator.type = parseInt(oscShapeSlider.value);
     oscShapeSlider.onchange = function(event){
-      synth.oscillator.type = event.target.value;
+      synth.oscillator.type = parseInt(event.target.value);
     }
 
     var lpfCutoffSlider = document.querySelector('#lpf-freq');
@@ -68,9 +68,9 @@ require([
     }
 
     var lfoShapeSlider = document.querySelector('#lfo-shape');
-    synth.lfo.type = lfoShapeSlider.value; 
+    synth.lfo.type = parseInt(lfoShapeSlider.value); 
     lfoShapeSlider.onchange = function(event){
-      synth.lfo.type = event.target.value; 
+      synth.lfo.type = parseInt(event.target.value); 
     }
 
     var lfoRateSlider = document.querySelector('#lfo-rate');

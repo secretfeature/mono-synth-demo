@@ -25,7 +25,7 @@ require([
     var oscShapeSlider = document.querySelector('#osc-shape');
     oscShapeSlider.onchange = function(event){
       console.log(event);
-      synth.oscillator.type = event.target.value;
+      synth.oscillator.type = parseInt(event.target.value);
     }
 
     var lpfCutoffSlider = document.querySelector('#lpf-freq');

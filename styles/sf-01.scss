@@ -7,10 +7,17 @@ body{
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 }
 
+a{
+  text-decoration: none;
+}
 
 a, a:active,a:hover{
   color:#FFF;
   font-weight: 600;
+}
+
+a:active,a:hover{
+  text-decoration: underline;
 }
 
 a:visited{
