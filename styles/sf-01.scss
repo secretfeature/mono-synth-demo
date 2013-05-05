@@ -3,7 +3,6 @@
 body{
   margin: 0px;
   padding: 0px;
-  background-color:#273349;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 }
 
@@ -29,11 +28,13 @@ a:visited{
   width: 100%;
   height: 100%;
   display: block;
-  text-align: center;
   position: absolute;
   left: 0px;
   bottom: 0px;
   top: 0px;
+  background-color:#273349;
+  color:#fff;
+  text-align: center;
 
   .parts{
     text-align: left;
@@ -79,13 +80,13 @@ a:visited{
         font-weight: 600;
         color: #FFF;
         background-color: #FF0000;
-        padding:5px 0;
+        padding:3px 0;
         text-align: center;
-        font-size: 13px;
+        font-size: 10px;
       }
       .slider{
         
-        padding: 15px 0 0 0;
+        padding: 10px 0 0 0;
         float: left;
         text-align: center;
         height: 100%;
@@ -93,9 +94,9 @@ a:visited{
 
         .label{
           width: 100%;
-          height: 30px;
+          height: 25px;
           float: left;
-          font-size: 12px;
+          font-size: 9px;
           color: #FFF;
         }
         text-align: center;
@@ -104,27 +105,29 @@ a:visited{
           -webkit-appearance: none;
           -webkit-transform: rotate(270deg);
           width: 105px;
-          height: 10px;
-          margin: 50px -30px -20px -30px;
+          height: 5px;
+          margin: 50px -40px -20px -40px;
         }
 
         input[type='range']::-webkit-slider-thumb {
           -webkit-appearance: none;
           background-image: url("../images/slider-thumb.png");
-          height:40px;
-          width:40px;
+          background-size: contain;
+          background-repeat:no-repeat;
+          height:30px;
+          width:30px;
           background-color: #000;
           border:0px solid #000;
           background-color: hsla(0,0,0,0);
         }
         .waveform-label{
           position:absolute;
-          top: 55px;
-          left:-5px;
+          top: 38px;
+          left:-13px;
           height: 100%;
           width: 20px;
           img{
-            padding:5px 0px;
+            padding:6px 0px;
           }
         }
       }
